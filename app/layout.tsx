@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'google-site-verification-code-here',
+    google: 'masukkan-kode-meta-tag-dari-google-search-console-disini',
   },
   alternates: {
     canonical: 'https://ngawimusical.com',
@@ -47,6 +47,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
+        <meta name="google-site-verification" content="masukkan-kode-meta-tag-dari-google-search-console-disini" />
         <Script
           id="schema-org"
           type="application/ld+json"
