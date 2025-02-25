@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Music4, Users, MapPin, ArrowRight, Mic, Guitar, Drum, Piano, Clock, Ticket } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import YouTubePlayer from "@/components/YouTubePlayer";
+import AudioPlayer from "@/components/AudioPlayer";
 import {
   Dialog,
   DialogContent,
@@ -103,7 +103,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-zinc-50">
-      <YouTubePlayer />
+      <AudioPlayer />
       {/* Hero Section */}
       <motion.section
         ref={heroRef}
