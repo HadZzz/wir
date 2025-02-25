@@ -1,9 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import Script from 'next/script';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Ngawi Musical - Harmoni Budaya Musik Ngawi',
@@ -32,7 +29,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'masukkan-kode-meta-tag-dari-google-search-console-disini',
+    google: 'qvkmBucr2wJ3gKCl95x7r0f8IxjZHBYM33IPO2LYmTs',
   },
   alternates: {
     canonical: 'https://ngawimusical.com',
@@ -47,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
-        <meta name="google-site-verification" content="masukkan-kode-meta-tag-dari-google-search-console-disini" />
+        <meta name="google-site-verification" content="qvkmBucr2wJ3gKCl95x7r0f8IxjZHBYM33IPO2LYmTs" />
         <Script
           id="schema-org"
           type="application/ld+json"
@@ -72,7 +69,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className="font-sans">{children}</body>
     </html>
   );
 }
