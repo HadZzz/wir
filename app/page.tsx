@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Music4, Users, MapPin, ArrowRight, Mic, Guitar, Drum, Piano, Clock, Ticket } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import YouTubePlayer from "@/components/YouTubePlayer";
 import {
   Dialog,
   DialogContent,
@@ -102,6 +103,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-zinc-50">
+      <YouTubePlayer />
       {/* Hero Section */}
       <motion.section
         ref={heroRef}
@@ -281,56 +283,58 @@ export default function Home() {
                         Lihat Detail
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="sm:max-w-[600px]">
+                    <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto p-4 md:p-6">
                       <DialogHeader>
-                        <DialogTitle className="text-2xl font-bold">{event.title}</DialogTitle>
+                        <DialogTitle className="text-xl md:text-2xl font-bold">{event.title}</DialogTitle>
                       </DialogHeader>
-                      <div className="mt-6">
+                      <div className="mt-4 md:mt-6">
                         <img
                           src={event.image}
                           alt={event.title}
-                          className="w-full h-48 object-cover rounded-lg mb-6"
+                          className="w-full h-40 sm:h-48 md:h-64 object-cover rounded-lg mb-4 md:mb-6"
                         />
-                        <div className="space-y-4">
-                          <div className="flex items-center text-zinc-600">
-                            <Calendar className="h-5 w-5 mr-3" />
-                            <span>{event.date}</span>
-                          </div>
-                          <div className="flex items-center text-zinc-600">
-                            <Clock className="h-5 w-5 mr-3" />
-                            <span>{event.time}</span>
-                          </div>
-                          <div className="flex items-center text-zinc-600">
-                            <MapPin className="h-5 w-5 mr-3" />
-                            <span>{event.location}</span>
-                          </div>
-                          <div className="flex items-center text-zinc-600">
-                            <Ticket className="h-5 w-5 mr-3" />
-                            <span>{event.ticketPrice}</span>
-                          </div>
-                          <div className="mt-4">
-                            <h4 className="font-semibold mb-2">Deskripsi</h4>
-                            <p className="text-zinc-600">{event.description}</p>
+                        <div className="space-y-3 md:space-y-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div className="flex items-center text-zinc-600">
+                              <Calendar className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 flex-shrink-0" />
+                              <span className="text-sm md:text-base">{event.date}</span>
+                            </div>
+                            <div className="flex items-center text-zinc-600">
+                              <Clock className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 flex-shrink-0" />
+                              <span className="text-sm md:text-base">{event.time}</span>
+                            </div>
+                            <div className="flex items-center text-zinc-600">
+                              <MapPin className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 flex-shrink-0" />
+                              <span className="text-sm md:text-base">{event.location}</span>
+                            </div>
+                            <div className="flex items-center text-zinc-600">
+                              <Ticket className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 flex-shrink-0" />
+                              <span className="text-sm md:text-base">{event.ticketPrice}</span>
+                            </div>
                           </div>
                           <div className="mt-4">
-                            <h4 className="font-semibold mb-2">Line Up</h4>
-                            <ul className="list-disc list-inside text-zinc-600">
+                            <h4 className="font-semibold mb-2 text-base md:text-lg">Deskripsi</h4>
+                            <p className="text-zinc-600 text-sm md:text-base">{event.description}</p>
+                          </div>
+                          <div className="mt-4">
+                            <h4 className="font-semibold mb-2 text-base md:text-lg">Line Up</h4>
+                            <ul className="list-disc list-inside text-zinc-600 text-sm md:text-base">
                               {event.lineup.map((artist, index) => (
                                 <li key={index}>{artist}</li>
                               ))}
                             </ul>
                           </div>
                           <div className="mt-4">
-                            <h4 className="font-semibold mb-2">Fasilitas</h4>
-                            <ul className="list-disc list-inside text-zinc-600">
+                            <h4 className="font-semibold mb-2 text-base md:text-lg">Fasilitas</h4>
+                            <ul className="list-disc list-inside text-zinc-600 text-sm md:text-base">
                               {event.facilities.map((facility, index) => (
                                 <li key={index}>{facility}</li>
                               ))}
                             </ul>
                           </div>
                         </div>
-                        <div className="mt-8">
-                          <Button className="w-full">Beli Tiket Sekarang</Button>
+                        <div className="mt-6 md:mt-8 sticky bottom-0 bg-white pt-4 border-t">
+                          <Button className="w-full md:text-lg py-2 md:py-3">Beli Tiket Sekarang</Button>
                         </div>
                       </div>
                     </DialogContent>
